@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Powerpoint Karaoke - DevOpsDays KC $year</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/night.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<style>
+        div.overlay { position:absolute; bottom:0; right:0; z-index: 500; max-width: 100px;}
+    </style>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<div class="overlay"><img src="img/devopsdayskc-logo.png"></div>
+				<section data-markdown>
+					<textarea data-template>
+						## Welcome to Powerpoint Karaoke
+						#### DevOpsDays KC $year Style!
+					</textarea>
+				</section>
+				<section>
+					<h2>What is Powerpoint Karaoke?</h2>
+					<p class="fragment">A game where participants present slides they've never seen before</p>
+					<p class="fragment">X# slides advancing every 15s</p>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## How do you play?
+						1. Get a bunch of _random_ slides 
+						2. ~~Rope~~ ~~Trick~~ Incentivize friends into presenting
+						3. Get a group to watch
+						4. Get a bunch of laughs
+						5. Rinse. Repeat. 
+					</script>
+				</section>
+				<section>
+					<h3>Some housekeeping notes</h3>
+						<p class="fragment">Code of Conduct applies</p>
+						<p class="fragment">Rated M for Mature</p>
+						<p class="fragment">No sexual content</p>
+						<p class="fragment">Laughter</p>
+				</section>
+				<section>
+					<h2>Are you ready?</h2>
+				</section>
+				<section>
+					<h2 class="r-frame">Let's f'in <a href="index-1.html" target="_blank">go!</a></h2>
+				</section>
+				<section>
+					<p style="font-size:25px;"><a href="index-1.html" target="_blank">Participant #1</a></p>
+					<p style="font-size:25px;"><a href="index-2.html" target="_blank">Participant #2</a></p>
+					<p style="font-size:25px;"><a href="index-3.html" target="_blank">Participant #3</a></p>
+					<p style="font-size:25px;"><a href="index-4.html" target="_blank">Participant #4</a></p>
+					<p style="font-size:25px;"><a href="index-5.html" target="_blank">Participant #5</a></p>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			const u32Array = new Uint32Array(20);
+			const imageWidth = 1920;
+			const imageHeight = 1080;
+			window.crypto.getRandomValues(u32Array);
+			const imgs = document.querySelectorAll('section');
+			imgs.forEach((img, idx) => {
+				img.dataset.backgroundImage = `https://source.unsplash.com/random/${imageWidth}x${imageHeight}/?funny-website&sig=${u32Array[idx]}`	// ex: https://source.unsplash.com/random/1920x1080/?devops&sig=556
+				img.dataset.backgroundSize = 'contain';
+				img.dataset.backgroundRepeat = 'no-repeat';
+				img.dataset.backgroundOpacity = '0.5';
+			})
+		</script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				controls: false,
+				progress: true,
+				center: true,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				slideNumber: 'all',
+				hash: true,
+				history: true,
+				loop: false,
+				help: true,
+
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
