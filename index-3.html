@@ -36,7 +36,7 @@
                     sectionTag = `<section>
                             <figure>
                                 <img src=${image.src.landscape}>
-                                <figcaption style="font-size:15px">via Pexels API, Photographer: ${image.photographer}</figcaption>
+                                <figcaption style="font-size:15px">via Pexels API, Photographer: <a href="${image.photographer_url}" target="_blank">${image.photographer}</a></figcaption>
                             </figure>
                         </section>`;
                     container.innerHTML += sectionTag;
